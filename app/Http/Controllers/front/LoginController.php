@@ -82,7 +82,7 @@ class LoginController extends Controller
 
             
              $request->session()->invalidate();
-             $request->session()->flash('message_error', 'Your Account is deactivated kindly contact Website Admin!');
+             $request->session()->flash('message_error', 'Your account is deactivated kindly contact Website Admin!');
             return redirect()->route('login');
 
            }
