@@ -21,6 +21,24 @@
     </style>
   </head>
   <body onload="startTime()">
+    @if(Auth::guard('admin')->check())
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong><b>{{Auth::guard('admin')->user()->username}}</b> You are currently logged in click <a href="{{route('admin.dashboard')}}">Dashboard</a> to redirect</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+   </div>
+ 
+
+ {{--    @elseif(Auth::guard('user')->check())
+     <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong><b>{{Auth::guard('user')->user()->username}}</b> You are currently logged in click <a href="{{route('admin.dashboard')}}">Dashboard</a> to redirect</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+   </div> --}}
+    @endif
     <div class="container" style="margin-top: 10%">
       <div class="row justify-content-center">
         @if(Session::has('message'))
@@ -47,6 +65,7 @@
             <div class="card-header">
               <div style="float: left">Login</div>
               <div style="float: right;" id="time"></div>
+           
             </div>
             <div class="card-body">
               <form method="POST" action="{{ route('login') }}">
@@ -99,8 +118,8 @@
               </form>
             </div>
             <div class="card-footer">
-              
-              <a href="admin/login" style="float: right">Admin accounts</a>
+                 <div id="date-today" style="float: left;"> </div>
+              <a href="admin/login" style="float: right">Admin Login</a>
             </div>
           </div>
         </div>
@@ -123,5 +142,18 @@ var t = setTimeout(startTime, 500);
 function checkTime(i) {
 if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
 return i;
+
+
 }
+
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+  
+document.getElementById('date-today').innerHTML = today;
+
 </script>

@@ -55,7 +55,7 @@
                      <td>{{$user->username}}</td>
                      <td>{{$user->email}}</td>
                      <td class="{{$user->employee_status}}">{{$user->employee_status}}</td>
-                     <td><a href="employee/{{$user->id}}/show" class="btn btn-primary btn-xs">Show</a></td>
+                     <td><a href="employee/{{$user->id}}/show" class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Show Details"><i class="fas fa-eye"></i></a></td>
                      </tr>
                 @endforeach
                 

@@ -58,6 +58,7 @@ Route::namespace('root')->prefix('admin')->group(function(){
 
 
 
+
                });
 
                Route::prefix('accounts')->group(function(){
@@ -72,6 +73,10 @@ Route::namespace('root')->prefix('admin')->group(function(){
                     Route::post('create', 'Usercontroller@store')->name('admin.accounts.submit');
                     Route::get('{id}/deactivate', 'UserController@deactivate');
                     Route::get('{id}/activate', 'UserController@activate');
+                    Route::get('{id}/edit', 'UserController@edit');
+                    Route::post('update', 'UserController@update')->name('admin.accounts.update');
+                    Route::post('updatepassword', 'UserController@update_password')->name('admin.accounts.updatepassword');
+
 
                                     
                });
@@ -88,19 +93,19 @@ Route::namespace('root')->prefix('admin')->group(function(){
 
 
 
-Route::post('password/email', [
-  'as' => 'password.email',
-  'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail'
-]);
-Route::get('password/reset', [
-  'as' => 'password.request',
-  'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm'
-]);
-Route::post('password/reset', [
-  'as' => 'password.update',
-  'uses' => 'Auth\ResetPasswordController@reset'
-]);
-Route::get('password/reset/{token}', [
-  'as' => 'password.reset',
-  'uses' => 'Auth\ResetPasswordController@showResetForm'
-]);
+// Route::post('password/email', [
+//   'as' => 'password.email',
+//   'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail'
+// ]);
+// Route::get('password/reset', [
+//   'as' => 'password.request',
+//   'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm'
+// ]);
+// Route::post('password/reset', [
+//   'as' => 'password.update',
+//   'uses' => 'Auth\ResetPasswordController@reset'
+// ]);
+// Route::get('password/reset/{token}', [
+//   'as' => 'password.reset',
+//   'uses' => 'Auth\ResetPasswordController@showResetForm'
+// ]);

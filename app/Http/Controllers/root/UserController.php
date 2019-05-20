@@ -101,6 +101,65 @@ class UserController extends Controller
        
         return view('root.accounts.deactivated',['users' => $users]);
       }
+
+      public function edit($id)
+      {
+
+         $users = User::where('id',$id)->get();
+
+         
+        return view('root.accounts.edit', ['users' => $users]);
+      }
+
+      public function update(Request $request)
+      {
+
+        
+        $this->validate($request, ['first_name'=>'required', 'last_name' => 'required','middle_name'=>'required', 'username' => 'required', 'email' => 'required']);
+  
+
+
+        $user = User::find(request('id'));
+
+
+        $user->first_name = request('first_name');
+        $user->last_name = request('last_name');
+        $user->middle_name =request('middle_name');
+        $user->email = request('email');
+        $user->username = request('username');
+        $user->save();
+
+
+
+        $request->session()->flash('message_create', 'Sucessfully updated account');
+        return redirect()->back()->withInput();
+
+
+
+      }
+
+      public function update_password(Request $request)
+      {
+
+
+        $this->validate($request, ['password'=>'required|min:8']);
+  
+
+
+        $user = User::find(request('id'));
+
+
+     
+        $user->password= bcrypt(request('password'));
+        $user->save();
+
+
+
+        $request->session()->flash('message_create', 'Sucessfully updated password');
+         return redirect()->back()->withInput();
+
+
+      }
    
 
 

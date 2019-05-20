@@ -59,8 +59,8 @@ class AdminController extends Controller
  public function dashboard()
  {
 
-
-  return view('root.dashboard');
+  $att_today= Attendance::attendance_today();
+  return view('root.dashboard', ['att' => $att_today]);
  }
 
 

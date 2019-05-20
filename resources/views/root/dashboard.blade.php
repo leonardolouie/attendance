@@ -60,7 +60,7 @@
         <div class="card">
       
       <div class="card-header">
-         <h1>Attendance Today</h1>
+         <h1>Attendance Today </h1> 
       </div>
       <div class="card-body">
         <table id="myTable" class="table table-striped table-bordered" style="width:100%">
@@ -74,17 +74,20 @@
             </tr>
           </thead>
           <tbody>
-        
+             @foreach($att as $att)
+          
+              <tr> 
+                <td>{{$att->last_name}}, {{$att->first_name}}</td>
+                <td>{{$att->coordinates}}</td>
+                <td>{{$att->address}}</td>
+                <td>{{$att->time_in}}</td>.
+                <td>{{$att->time_out}}</td>
+
+              </tr>
+
+             @endforeach
           </tbody>
-          <tfoot>
-          <tr>
-            <th>Name</th>
-              <th>Coordinates</th>
-              <th>Address</th>
-              <th>Time In</th>
-              <th>Time Out</th>
-          </tr>
-          </tfoot>
+          
         </table>
       </div>
     </div>
@@ -104,8 +107,8 @@
 $(document).ready(function() {
 
 
-$('#myTable').DataTable();
-} );
+//$('#myTable').DataTable();
+});
 
    list();
 

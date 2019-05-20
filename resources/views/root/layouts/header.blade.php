@@ -11,7 +11,7 @@
 					<div class="row d-flex align-items-center min-h pos-md-r">
 						<div class="col-xl-12 col-12 d-flex justify-content-end">
 							<div class="right_bar_top d-flex align-items-center">
-
+                               <p style="margin-top: 2%;"id="date-today"></p>
 								{{-- <!-- DropDown_Inbox -->
 								<div class="dropdown dropdown-inbox">
 									<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">

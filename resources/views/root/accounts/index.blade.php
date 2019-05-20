@@ -40,7 +40,7 @@
     <div class="card">
       
       <div class="card-header">
-        <a class="btn btn-primary" href="{{route('admin.accounts.create')}}">Create new user account</a>
+        <a class="btn btn-success" href="{{route('admin.accounts.create')}}">Create new user account  <i class="fas fa-plus"></i></a>
       </div>
       <div class="card-body">
         <table id="myTable" class="table table-striped table-bordered" style="width:100%">
@@ -61,7 +61,9 @@
               <td>{{$user->username}}</td>
               <td>{{$user->email}}</td>
               <td>{{$user->created_at}}</td>
-              <td><button class="btn btn-warning btn-xs">Edit</button><a class="btn btn-danger btn-xs" href="accounts/{{$user->id}}/deactivate">Deactivate</button></td>
+              <td><a class="btn btn-warning btn-xs" href="accounts/{{$user->id}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-edit"></i></a>
+
+                <a class="btn btn-danger btn-xs" href="accounts/{{$user->id}}/deactivate" data-toggle="tooltip" data-placement="top" title="Deactivate Account"><i class="fas fa-lock"></i></a></td>
             </tr>
             @endforeach
             

@@ -22,7 +22,18 @@
     </style>
   </head>
   <body onload="startTime()">
+     
+     @if(Auth::guard('admin')->check())
 
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong><b>{{Auth::guard('admin')->user()->username}}</b> You are currently logged in click <a href="{{route('admin.dashboard')}}">Dashboard</a> to redirect</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+   </div>
+
+   @endif
+ 
     @if(Session::has('message'))
       <div class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>{{Session::get('message')}}</strong>

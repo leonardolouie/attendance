@@ -64,7 +64,7 @@
                      <td>{{$user->username}}</td>
                      <td>{{$user->email}}</td>
                      <td>{{$user->updated_at}}</td>
-                     <td><a class="btn btn-success btn-xs" href="{{$user->id}}/activate">Activate</button></td>
+                     <td><a class="btn btn-success btn-xs" href="{{$user->id}}/activate" data-toggle="tooltip" data-placement="top" title="Activate Account">Activate</button></td>
                      </tr>
                 @endforeach
                 

@@ -19,7 +19,7 @@
 						</ul>		
 					</li> --}}
 					<li class="menu_sub {{in_array(Route::currentRouteName(), ['admin.view.attendance','admin.employee.attendance']) ? 'active' : '' }}">
-						<a href="#"><i class="icon-globe"></i><span>Attendance</span> <span class="arrow"></span> </a>
+						<a href="#"><i class="fas fa-calendar"></i><span>Attendance</span> <span class="arrow"></span> </a>
 						<ul class="down_menu">
 							<li>
 								<a href="{{route("admin.view.attendance")}}">View Attendance</a>

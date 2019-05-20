@@ -15,6 +15,9 @@
 	<link href="{{asset('admin/assets/css/simple-line-icons.css')}}" rel="stylesheet" type="text/css">
 	<link href="{{asset('admin/assets/css/jquery.mCustomScrollbar.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+	  
+ 	 <link href="{{asset('admin/assets/fontawesome-free-5.5.0-web/css/brands.css')}}" rel="stylesheet">
+ 	 <link href="{{asset('admin/assets/fontawesome-free-5.5.0-web/css/solid.css')}}" rel="stylesheet">
 
 	<link href="{{asset('admin/assets/css/style.css')}}" rel="stylesheet">
 	<link href="{{asset('admin/assets/css/responsive.css')}}" rel="stylesheet">
@@ -65,6 +68,22 @@
 	
 
 </body>
+
+<script> 
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+  
+document.getElementById('date-today').innerHTML = today;
+
+
+
+
+</script>
 
 <script type="text/javascript" src="{{asset('admin/assets/js/jquery.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/assets/js/popper.min.js')}}"></script>
