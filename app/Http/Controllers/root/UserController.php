@@ -57,7 +57,7 @@ class UserController extends Controller
 
 
 
-        $request->session()->flash('message_create', 'Sucessfully Created new Account');
+        $request->session()->flash('message_create', 'Sucessfully created new Account');
         return redirect('admin/accounts')->withInput();
 
       }
@@ -71,7 +71,7 @@ class UserController extends Controller
        $user->status = "0";
        $user->save();
 
-       $request->session()->flash('message_create', 'Sucessfully Deactivated Account');
+       $request->session()->flash('message_create', 'Sucessfully deactivated Account');
         return redirect('admin/accounts');
           
       }
@@ -84,7 +84,7 @@ class UserController extends Controller
        $user->status = "1";
        $user->save();
 
-       $request->session()->flash('message_activate', 'Sucessfully Activated Account');
+       $request->session()->flash('message_activate', 'Sucessfully activated Account');
         return redirect('admin/accounts/deactivated');
           
       }

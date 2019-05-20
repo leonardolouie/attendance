@@ -33,7 +33,7 @@
 						<a href="#"> <i class="icon-people"></i><span>Accounts</span> <span class="arrow"></span> </a>
 						<ul class="down_menu">
 							<li>
-								<a href="{{route('admin.accounts.index')}}">View accounts</a>
+								<a href="{{route('admin.accounts.index')}}">User accounts</a>
 							</li>
 							<li>
 								<a href="{{route('admin.accounts.deactivated')}}">Deactivated Accounts</a>

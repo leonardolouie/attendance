@@ -15,7 +15,7 @@ class Attendance extends Model
         $mytime = Carbon\Carbon::now()->toDateString();
          
      	
-        $attendance_today = DB::select("SELECT * from  attendances INNER JOIN users ON attendances.user_id = users.id WHERE date = '$mytime'");
+        $attendance_today = DB::select("SELECT * from  attendances INNER JOIN users ON attendances.user_id = users.id WHERE date = '$mytime' ORDER BY time_in DESC");
 
 
 
