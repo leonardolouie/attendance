@@ -28,9 +28,7 @@
     <!-- breadcrumb_End -->
     <!-- Section -->
     <section class="chart_section">
-
         <div class="card">
-      
         <div class="card-header"> 
              <p>Employee List</p>
 
@@ -51,7 +49,7 @@
               
                 @foreach($users as $user)
                      <tr>
-                     <td>{{$user->full_name}}</td>
+                     <td>{{$user->last_name .', '.$user->first_name.' '. $user->middle_name}}</td>
                      <td>{{$user->username}}</td>
                      <td>{{$user->email}}</td>
                      <td class="{{$user->employee_status}}">{{$user->employee_status}}</td>

@@ -69,8 +69,8 @@
               <th>Name</th>
               <th>Coordinates</th>
               <th>Address</th>
-              <th>Time In</th>
-              <th>Time Out</th>
+              <th>Time</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -80,9 +80,8 @@
                 <td>{{$att->last_name}}, {{$att->first_name}}</td>
                 <td>{{$att->coordinates}}</td>
                 <td>{{$att->address}}</td>
-                <td>{{$att->time_in}}</td>.
-                <td>{{$att->time_out}}</td>
-
+                <td>{{$att->time}}</td>
+                <td>{{$att->status}}</td>
               </tr>
 
              @endforeach
