@@ -125,7 +125,8 @@
 					var geocoder = new google.maps.Geocoder();
 					geocoder.geocode({'latLng': myLatlng }, function(results, status) {
 						if (status == google.maps.GeocoderStatus.OK) {
-						$('#address').html(results[1].formatted_address);
+							console.log(results)
+						$('#address').html(results[0].formatted_address);
 						$('#address_hidden').val(results[1].formatted_address);
 						$('#address_hidden_2').val(results[1].formatted_address);
 
@@ -135,27 +136,7 @@
 					});
 				}
 				
-				// function showError(error) {
-				// 	switch(error.code) {
-				// 		case error.PERMISSION_DENIED:
-				// 		c.innerHTML = "User denied the request for Geolocation."
-				// 		console.log(c);
-				// 		break;
-				// 		case error.POSITION_UNAVAILABLE:
-				// 		c.innerHTML = "Location information is unavailable."
-				// 		console.log(c);
-				// 		break;
-				// 		case error.TIMEOUT:
-				// 		c.innerHTML = "The request to get user location timed out."
-				// 		console.log(c);
-				// 		break;
-				// 		case error.UNKNOWN_ERROR:
-				// 		c.innerHTML = "An unknown error occurred."
-				// 		console.log(c);
-				// 		break;
-				// 	}
-				// }
-
+	
 
 
 			});

@@ -18,8 +18,8 @@ class CreateAttendancesTable extends Migration
             $table->string('user_id');
             $table->string('coordinates')->nullable();
             $table->string('address')->nullabe();
-            $table->string('time_in')->nullable();
-            $table->string('time_out')->nullabe();
+            $table->string('time')->nullable();
+            $table->string('status')->nullable();
             $table->string('date');
             $table->timestamps();
         });
