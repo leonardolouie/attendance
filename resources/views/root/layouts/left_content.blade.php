@@ -1,4 +1,5 @@
-	<div class="side_bar scroll_auto">
+<div class="row">
+<div class="side_bar scroll_auto">
 
 				<ul id="dc_accordion" class="sidebar-menu tree">
 					<li class="{{ in_array(Route::currentRouteName(), ['admin.dashboard']) ? 'active' : '' }}">
@@ -7,7 +8,7 @@
 
 					</li>
 					
-					{{-- <li class="menu_sub">
+					<!-- {{-- <li class="menu_sub">
 						<a href=""> <i class="icon-grid"></i><span>Gallery</span> <span class="arrow"></span> </a>
 						<ul class="down_menu">
 							<li>
@@ -17,7 +18,7 @@
 								<a href="create-album.html">Create New</a>
 							</li>
 						</ul>		
-					</li> --}}
+					</li> --}} -->
 					<li class="menu_sub {{in_array(Route::currentRouteName(), ['admin.view.attendance','admin.employee.attendance']) ? 'active' : '' }}">
 						<a href="#"><i class="fas fa-calendar"></i><span>Attendance</span> <span class="arrow"></span> </a>
 						<ul class="down_menu">
@@ -41,12 +42,13 @@
 							
 						</ul>
 					</li>
-					{{-- <li class="">
+					<!-- {{-- <li class="">
 						<a href="view-messages.html"> <i class="ion-chatboxes"></i><span>Messages</span>	</a>
 					</li>
 					<li class="">
 						<a href="#"> <i class="icon-settings"></i></i> <span>Manage</span></a>
-					</li> --}}
+					</li> --}} -->
 
 				</ul>
+			</div>
 			</div>
