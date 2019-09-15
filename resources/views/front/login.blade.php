@@ -12,12 +12,82 @@
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <!-- Styles -->
   <link href="{{asset('css/app.css') }}" rel="stylesheet">
   <style>
-    #time{
+    html,
+    body {
+      padding: 0 !important;
+      overflow-x: hidden !important;
+      margin: 0;
+      background: #5b866b;
+      box-sizing: border-box;
     }
+
+
+  
+
+   .page-footer {
+     position: absolute;
+     bottom:0;
+     margin-top:400px;
+     width: 100%;
+   }
+   .footer-text{
+     color:#fff;
+   }
+    .card {
+      
+    }
+
+  
+
+
+    .input-group-text i {
+      color: #7bb18f;
+      font-size: 1.2rem;
+    }
+
+    .redirect{
+      
+      margin-top: 20px; 
+    }
+  .redirect small  {
+     
+      color:#fff;
+      font-size: 0.8rem;
+    }
+
+    .redirect a{
+      color: #54b2ff;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+    .badge-text{
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .card-title i {
+      color: #7bb18f;
+    }
+    .dt i{
+      font-size: 1.2rem;
+    }
+    .btn-user {
+  background-color: #7bb18f;
+    color:#fff;
+ 
+}
+
+.btn-user:hover {
+  background-color: #578267;
+    color:#fff;
+ 
+}
+
   </style>
 </head>
 <body onload="startTime()">
@@ -27,91 +97,104 @@
     <strong><h6>Warning</h6><b>{{Auth::guard('admin')->user()->username}}</b> You are currently logged in click <a href="{{route('admin.dashboard')}}">Dashboard</a> to redirect</strong>
   </div>
   @endif
-  <div class="container" style="margin-top: 10%">
-    <div class="row justify-content-center">
-      @if(Session::has('message'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>{{Session::get('message')}}</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      @endif
-      @if(Session::has('message_error'))
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{Session::get('message_error')}}</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      @endif
-      
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-md-9">
+  <div class="container" style="margin-top: 6%;">
+    <div class="row">
+      <div class="col-md-7 col-xs-12 col-sm-12 mx-auto d-block">
         <div class="card">
           <div class="card-header">
-            <div style="float: left">Login</div>
-            <div style="float: right;" id="time"></div>
+            <h4 class="float-left card-title"> <i class="fa fa-cogs"></i> <b>User</b></h4>
+            <div class="dt float-right">
+            <span class=" badge-text" id="time"></span>
+            </div>
             
           </div>
           <div class="card-body">
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action=" {{ route('login') }}">
               @csrf
-              <div class="form-group row">
-                <label for="text" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+              <div class="row">
                 <div class="col-md-6">
-                  <input id="text" type="text" class="form-control"  name="username" value="{{ old('username') }}" required autofocus>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                <div class="col-md-6">
-                  <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password">
-                  
-                  @if ($errors->any())
-                  <div style="font-size: 10px; color: red">
-                    <ul>
-                      @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                      @endforeach
-                    </ul>
+                  <div class="form-group">
+                    <label for="text">{{ __('Username') }}</label>
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-user"></i></div>
+                    </div>
+                      <input id="text" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus placeholder="Username">
+                      </div>
+                    <small class="text-muted">Please enter your username ex. user</small>
+
                   </div>
-                  @endif
-                  
-                  @if(Session::has('password_koto'))
-                  <span role="alert" style="font-size: 10px; color: red">
-                    <strong>{{ Session::get('password_koto') }}</strong>
-                  </span>
-                  @endif
-                  
+                  <div class="form-group">
+                    <label for="password"> {{ __('Password') }}</label>
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                    </div>
+                    <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password" placeholder="Password">
+                    </div>
+
+                    @if ($errors->any())
+                    <div style="font-size: 10px; color: red">
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                    @endif
+
+
+
+                    @if(Session::has('password_koto'))
+                    <span role="alert" style="font-size: 10px; color: red">
+                      <strong>{{ Session::get('password_koto') }}</strong>
+                    </span>
+                    @endif
+                    <br />
+                   
+                    <button type="submit" class="btn btn-user">
+                      {{ __('Login') }}
+                    </button>
+
+
+                  </div>
+                </div>
+                <div class="col-md-4  mx-auto d-block">
+                  <img class="mx-auto d-block" src="/images/secuser.svg" alt="" style="  width:230px;">
                 </div>
               </div>
-              <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4">
-                  <button type="submit" class="btn btn-primary">
-                    {{ __('Login') }}
-                  </button>
-                  
-                  @if (Route::has('password.request'))
-                  <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                  </a>
-                  @endif
-                  
-                </div>
-              </div>
-              
+
+
+
             </form>
           </div>
-          <div class="card-footer">
-            <div id="date-today" style="float: left;"> </div>
-            <a href="admin/login" style="float: right">Admin Login</a>
-          </div>
+          <!-- <div class="card-footer">
+              
+            </div> -->
+           
         </div>
+        <div class="redirect">
+        <small><span>&#8592;</span> Login as </small><a href="/admin/login">Admin account</a>
+        </div>
+        
+        
       </div>
+
     </div>
+    
   </div>
+  <br/><br/>
+  <!-- Footer -->
+<footer class="page-footer">
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3 footer-text">© 2019 Copyright:
+  <a href="#" class="footer-text"> Shoppetown Property Management and Leasing</a>
+</div>
+<!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </body>
 </html>
 <script>
