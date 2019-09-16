@@ -24,7 +24,7 @@ class AttendanceController extends Controller
     }
     public function timein(Request $request)
     {
-        $mytime = Carbon\Carbon::now()->toDateString();
+        $mytime = Carbon\Carbon::now("Asia/Manila")->toDateString();
         
         $status = "IN";
         $this->validate($request, ['coordinates'=>'required', 'address' => 'required', 'time' => 'required']);
@@ -45,7 +45,7 @@ class AttendanceController extends Controller
     }
     public function timeout(Request $request)
     {
-        $mytime = Carbon\Carbon::now()->toDateString();
+        $mytime = Carbon\Carbon::now("Asia/Manila")->toDateString();
         $this->validate($request, ['coordinates'=>'required', 'address' => 'required', 'time' => 'required']);
         $att = new Attendance();
         
