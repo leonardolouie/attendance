@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers\root;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
 use App\User;
 use App\Attendance;
+use Carbon\Carbon;
+use DB;
 
 
 class AdminattendanceController extends Controller
 {
-    //
     
     
     public function index() {
-        
-        return view('root.attendance.index');
+
+    $attendances =  DB::table('attendances')
+            ->join('users', 'users.id', '=', 'attendances.user_id')
+            ->select('users.*', 'attendances.*')
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+     return view('root.attendance.index', [ 'attendances' => $attendances]);
     }
     
     

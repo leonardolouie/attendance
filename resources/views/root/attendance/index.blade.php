@@ -35,37 +35,46 @@
     <!-- breadcrumb_End -->
     <!-- Section -->
     <section class="chart_section">
-    <div class="card">
-        <div class="card-body">
-        <div class="table-responsive">
-            <table id="datatable-buttons" class="table table-striped dt-responsive nowrap">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-              <tbody>
-              
-              
-                   <tr>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                <td><a class="btn btn-primary btn-xs" href="#" data-toggle="tooltip" data-placement="top" title="Show Details">Show Details</button></td>
-                   </tr>
-             
-              
-          </tbody>
-            </table>
-          </div>
-       </div>
-        </div>
+        <div class="card">
+            <div class="card-header">
+            </div>
 
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="datatable-buttons" class="table table-striped dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Address</th>
+                                <th>Name</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($attendances as $attendance)
+                            <tr>
+                                <td>{{$attendance->date}}</td>
+                                <td>{{$attendance->address}}</td>
+                                <td>{{$attendance->last_name.', '.$attendance->first_name}}</td>
+                                <td>{{$attendance->time}}</td>
+                                <td>{{$attendance->status}}</td>
+                            </tr>
+                            @endforeach
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Date</th>
+                                <th>Address</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- Section_End -->
 </div>

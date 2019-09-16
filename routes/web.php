@@ -41,12 +41,13 @@ Route::namespace('root')->prefix('admin')->group(function(){
        Route::middleware('auth:admin')->group(function(){
        Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
        Route::get('api/todaylist', 'AdminController@list');
+
        Route::prefix('attendance')->group(function(){
        Route::get('/', 'AdminattendanceController@index')->name('admin.view.attendance');
        Route::get('employee', 'AdminattendanceController@employee_attendance')->name('admin.employee.attendance');
        Route::get('employee/{id}/show', 'AdminattendanceController@show_data');
                      
-              });
+       });
               
               Route::prefix('accounts')->group(function(){
                      
