@@ -35,36 +35,25 @@
     <!-- Section -->
     <section class="chart_section">
       <div class="row">
-        <div class="col-xl-4 col-md-4">
+        <div class="col-xl-6 col-md-6">
           <div class="info_items bg_green d-flex align-items-center">
             <span class="info_items_icon">
               <i class="ion-android-people"></i>
             </span>
             <div class="info_item_content">
               <span class="info_items_text">Total Employee</span>
-              <span class="info_items_number">450</span>
+            <span class="info_items_number">{{$user_count}}</span>
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-md-4">
+        <div class="col-xl-6 col-md-6">
           <div class="info_items bg_blue d-flex align-items-center">
             <span class="info_items_icon">
               <i class="ion-calendar"></i>
             </span>
             <div class="info_item_content">
               <span class="info_items_text">Attendance Today</span>
-              <span class="info_items_number">450</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-md-4">
-          <div class="info_items bg_pink d-flex align-items-center">
-            <span class="info_items_icon">
-              <i class="ion-key"></i>
-            </span>
-            <div class="info_item_content">
-              <span class="info_items_text">Deactivated Accounts</span>
-              <span class="info_items_number">450</span>
+            <span class="info_items_number">{{$attendance_count}}</span>
             </div>
           </div>
         </div>
@@ -79,10 +68,9 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Coordinates</th>
                   <th>Address</th>
-                  <th>Time in</th>
-                  <th>Time out</th>
+                  <th>Time</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -91,14 +79,9 @@
 
                 <tr>
                   <td>{{$att->last_name}}, {{$att->first_name}}</td>
-                  <td>{{$att->coordinates}}</td>
                   <td>{{$att->address}}</td>
-                  <td>{{$att->time_in}}</td>.
-                  <td>{{$att->time_out}}</td>
-                  <td>
-                    <a href="" class="btn btn-xs btn-secondary" title="edit"><i class="mdi mdi-pencil"></i></a>
-                    <a href="" class="btn btn-xs btn-danger" title="disable"><i class="mdi mdi-account-switch"></i></a>
-                  </td>
+                  <td>{{$att->time}}</td>
+                  <td>{{$att->status}}</td>
                 </tr>
 
                 @endforeach
@@ -127,9 +110,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
   $(document).ready(function() {
-
-
-    //$('#myTable').DataTable();
+    $('#myTable').DataTable();
   });
 
   list();

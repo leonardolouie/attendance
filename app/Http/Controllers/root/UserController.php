@@ -33,7 +33,13 @@ class UserController extends Controller
   
   public function store(Request $request) {
     
-    $this->validate($request, ['first_name'=>'required', 'last_name' => 'required','middle_name'=>'required', 'username' => 'required|unique:users', 'password' => 'required|min:8', 'email' => 'required|unique:users']);
+    $this->validate($request, 
+    ['first_name'=>'required|min:3', 
+    'last_name' => 'required|min:3',
+    'middle_name'=>'required|min:3',
+    'username' => 'required|unique:users|min:5',
+    'password' => 'required|min:8',
+    'email' => 'required|unique:users']);
     
     $user = new User();
     $user->first_name = request('first_name');
@@ -88,7 +94,8 @@ class UserController extends Controller
   
   public function update(Request $request) {
     
-    $this->validate($request, ['first_name'=>'required', 'last_name' => 'required','middle_name'=>'required', 'username' => 'required', 'email' => 'required']);
+    $this->validate($request, ['first_name'=>'required|min:3', 'last_name' => 'required|min:3','middle_name'=>'required|min:3', 'username' => 'required|min:5', 'email' => 'required']);
+
     $user = User::find(request('id'));
     $user->first_name = request('first_name');
     $user->last_name = request('last_name');

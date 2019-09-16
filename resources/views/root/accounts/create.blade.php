@@ -18,7 +18,6 @@
                             <i class="fa fa-angle-right"></i>
                         </li>
                         <li>
-
                             <a class="parent-item" href="">Accounts</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
@@ -43,7 +42,7 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="">
                                     <h2>User information</h2>
                                     <br />
@@ -74,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="">
                                     <h2>Login credentials</h2>
                                     <br />

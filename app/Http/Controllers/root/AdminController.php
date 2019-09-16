@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use App\Admin;        
 use Auth;
 use App\Attendance;
+use App\User;
+use Carbon;
+use DB;
 
 class AdminController extends Controller
 {
@@ -41,9 +44,13 @@ class AdminController extends Controller
     
   }
   public function dashboard() { 
-
+    $mytime = Carbon\Carbon::now("Asia/Manila")->toDateString();
     $att_today= Attendance::attendance_today();
-    return view('root.dashboard', ['att' => $att_today]);
+    $user_count = User::count();
+    $attendance_count = Attendance::where('date', '=', $mytime)->count();
+
+  
+    return view('root.dashboard', ['att' => $att_today, 'user_count' => $user_count, 'attendance_count' => $attendance_count]);
 
   }
   
