@@ -18,11 +18,10 @@
 Route::namespace('front')->group(function(){
        
        
-       Route::get('/', 'LoginController@index');
-       Route::get('login', 'LoginController@index')->name('user.login');
-       Route::post('login', 'LoginController@login')->name('login');
+       Route::get('/{status}', 'LoginController@index');
+       Route::post('login/{status}', 'LoginController@login')->name('login');
        Route::middleware('auth')->prefix('attendance')->group(function(){
-       Route::get('/', 'AttendanceController@index');
+       Route::get('/{status}', 'AttendanceController@index');
        Route::post('timein', 'AttendanceController@timein')->name('timein');
        Route::post('timeout', 'AttendanceController@timeout')->name('timeout');
        });

@@ -26,7 +26,7 @@
             padding: 0 !important;
             overflow-x: hidden !important;
             margin: 0;
-            background: #5b866b;
+            background: #305F72;
             box-sizing: border-box;
         }
 
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action=" {{ route('login') }}">
+                    <form method="POST" action="login/{{$status}}">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
@@ -180,10 +180,6 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-md-4  mx-auto d-block">
-                                    <img class="mx-auto d-block" src="/images/secuser.svg" alt=""
-                                        style="  width:230px;">
-                                </div>
                             </div>
                         </form>
                     </div>
@@ -199,7 +195,7 @@
     <footer class="page-footer">
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3 footer-text">© 2019 Copyright:
-            <a href="#" class="footer-text"> Shoppetown Property Management and Leasing</a>
+            <a href="#" class="footer-text">Philpower corp.</a>
         </div>
         <!-- Copyright -->
     </footer>

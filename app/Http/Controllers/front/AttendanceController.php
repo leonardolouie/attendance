@@ -18,14 +18,22 @@ class AttendanceController extends Controller
     {
         $this->auth = $auth;
     }
-    public function index()
-    {
-        return view('front.time');
+   
+    public function index($status = 'timein') {
+          
+     $status_result='';
+     if($status === 'timein' || $status === 'timeout') {
+         $status_result = $status;
+     }
+     else{ 
+        $status_result = 'timein';
+     }
+        return view('front.time', ['status' =>  $status_result]);
     }
     public function timein(Request $request)
     {
         $mytime = Carbon\Carbon::now("Asia/Manila")->toDateString();
-        
+       
         $status = "IN";
         $this->validate($request, ['coordinates'=>'required', 'address' => 'required', 'time' => 'required']);
         
@@ -41,7 +49,7 @@ class AttendanceController extends Controller
         $this->auth::guard()->logout();
         $request->session()->invalidate();
         $request->session()->flash('message', $message);
-        return redirect()->route('login');
+        return redirect($request->time_status);
     }
     public function timeout(Request $request)
     {
@@ -63,6 +71,6 @@ class AttendanceController extends Controller
         $this->auth::guard()->logout();
         $request->session()->invalidate();
         $request->session()->flash('message', $message);
-        return redirect()->route('login');
+        return redirect($request->time_status);
     }
 }

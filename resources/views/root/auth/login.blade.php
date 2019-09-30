@@ -154,13 +154,7 @@
 
                   </div>
                 </div>
-                <div class="col-md-4  mx-auto d-block">
-                  <img class="mx-auto d-block" src="/images/sec.svg" alt="" style="  width:230px;">
-                </div>
               </div>
-
-
-
             </form>
           </div>
           <!-- <div class="card-footer">
@@ -169,7 +163,7 @@
            
         </div>
         <div class="redirect">
-        <small><span>&#8592;</span> Login as </small><a href="{{route('user.login')}}">User account</a>
+        <small><span>&#8592;</span> Login as </small><a href="/timein">User account</a>
         </div>
         
         

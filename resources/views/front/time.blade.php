@@ -38,6 +38,7 @@
         <input name="coordinates" type="hidden" type="text" id="coordinates_hidden">
         <input name="address" type="hidden" type="text" id="address_hidden">
         <input name="time" type="hidden" type="text" id="hidden_time">
+        <input name="time_status" type="hidden" type="text" id="hidden_status" value={{$status}}>
 
         <div class="container">
             <div class="card" style="margin-top: 10%;">
@@ -48,18 +49,22 @@
                 </div>
                 <div class="card-body">
                     <div class="container-fluid">
+                       
+                        @if($status !=  'timeout')
                         <div class="row">
                             <div class="col-md-12 col-lg-12" style="text-align: center;margin-bottom: 10px;">
                                 <input id="time_in" type="button" class="btn btn-primary" value="TIME IN"
                                     style="width: 50%; height: 50px" disabled="">
                             </div>
                         </div>
+                        @else
                         <div class="row">
                             <div class="col-md-12 col-lg-12" style="text-align: center">
                                 <input id="time_out" type="button" class="btn btn-primary" value="TIME OUT"
                                     style="width: 50%; height: 50px" disabled="">
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="card-footer">
@@ -76,6 +81,7 @@
         <input name="address" type="hidden" type="text" id="address_hidden_2">
         <input name="coordinates" type="hidden" type="text" id="coordinates_hidden_2">
         <input name="time" type="hidden" type="text" id="hidden_time_2">
+        <input name="time_status" type="hidden" type="text" id="hidden_status_2" value={{$status}}>
     </form>
 </body>
 </html>

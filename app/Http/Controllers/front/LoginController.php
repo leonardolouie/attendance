@@ -38,30 +38,38 @@ class LoginController extends Controller
     *
     * @return void
     */
-    // public function __construct()
-    // {
-        //     $this->middleware('guest')->except('logout');
-        // }
-        
-        public function index() {
 
-         return view('front.login'); 
+   
+        public function index($status = 'timein') {
+          
+        $status_result='';
+        if($status === 'timein' || $status === 'timeout') {
+            $status_result = $status;
+        }
+        else{ 
+            $status_result = 'timein';
+         }
+           
+         return view('front.login', ['status' => $status_result]); 
         }
         
         
-        public function login(Request $request) {
+        public function login($status, Request $request) {
             
+
          $this->validate($request, ['username' => 'required', 'password'=>'required|min:8']);
          $user_data = array('username' => request('username'), 'password' => request('password')); 
             
             if(Auth::attempt($user_data)) {
+
+
                 if(Auth::user()->status == 1){
-                    return redirect('attendance');
+                    return redirect('attendance/'.$status);
                 }
                 else {
                     $request->session()->invalidate();
                     $request->session()->flash('message_error', 'Your account is deactivated kindly contact Website Admin!');
-                    return redirect()->route('login');
+                    return redirect()->route('login'.$status);
                     
                 }
             }
