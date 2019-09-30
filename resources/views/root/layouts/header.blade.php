@@ -1,10 +1,8 @@
 <header class="main-header">
     <div class="container_header">
         <div class="logo d-flex align-items-center">
-            <a href="#"> <strong class="logo_icon"> <img src="{{asset('images/shoppetown.png')}}" alt=""> </strong>
+            <a href="#"> <strong class="logo_icon"></strong>
                 <span class="logo-default">
-                    <img class="img-responsive" src="{{asset('images/shoppetown.png')}}" alt=""
-                        style="width:50px; height: 50px; margin-left: 80px;"> </span> </a>
             <div class="icon_menu full_menu">
                 <a href="#" class="menu-toggler sidebar-toggler"></a>
             </div>

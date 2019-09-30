@@ -178,7 +178,7 @@
 
 <!-- Copyright -->
 <div class="footer-copyright text-center py-3 footer-text">© 2019 Copyright:
-  <a href="#" class="footer-text"> Shoppetown Property Management and Leasing</a>
+  <a href="#" class="footer-text">Philpower Integrated Services, Co.</a>
 </div>
 <!-- Copyright -->
 

@@ -3,7 +3,7 @@
                 <div class="col-md-12 text-center">
                     <div class="copy_right">
                         <p>
-                            2019 © Attendance System
+                            2019 © Philpower Integrated Services, Co.
                             <a href="#"></a>
                         </p>
                     </div>

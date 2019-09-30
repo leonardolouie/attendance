@@ -195,7 +195,7 @@
     <footer class="page-footer">
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3 footer-text">© 2019 Copyright:
-            <a href="#" class="footer-text">Philpower corp.</a>
+            <a href="#" class="footer-text">Philpower Integrated Services, Co.</a>
         </div>
         <!-- Copyright -->
     </footer>
