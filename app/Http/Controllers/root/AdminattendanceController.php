@@ -20,7 +20,7 @@ class AdminattendanceController extends Controller
     $attendances =  DB::table('attendances')
             ->join('users', 'users.id', '=', 'attendances.user_id')
             ->select('users.*', 'attendances.*')
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('attendances.created_at', 'DESC')
             ->get();
 
      return view('root.attendance.index', [ 'attendances' => $attendances]);
