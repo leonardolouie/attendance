@@ -39,41 +39,27 @@ class AttendanceController extends Controller
 
          $mytime = Carbon\Carbon::now()->toDateString();
        
-
+         $status = "IN";
 
          $this->validate($request, ['coordinates'=>'required', 'address' => 'required', 'time' => 'required']);
 
-         $in_validator = Attendance::where('user_id', Auth::user()->id)->where('date', $mytime)->get();
+         //$in_validator = Attendance::where('user_id', Auth::user()->id)->where('date', $mytime)->get();
 
-         if($in_validator->isEmpty())
-         {
-
+      
              $att = new Attendance();
 
              $att->date = $mytime;
-             $att->time_in = request('time');
+             $att->time = request('time');
+             $att->status =$status;
              $att->coordinates = request('coordinates');
              $att->address = request('address');
              $att->user_id = Auth::user()->id;
              $att->save();
-
-             $message='Sucessfully logged in enjoy Your day!';
-         }
-
-         else 
-         {
-
-             $message='You are already logged in';
-         }
-
-
-
-
-
-      $this->auth::guard()->logout();
-      $request->session()->invalidate();
-      $request->session()->flash('message', $message);
-      return redirect()->route('login');
+             $message='Sucessfully Time in !';
+            $this->auth::guard()->logout();
+            $request->session()->invalidate();
+            $request->session()->flash('message', $message);
+            return redirect()->route('login');
 
 
     }
@@ -90,10 +76,10 @@ class AttendanceController extends Controller
      $att = new Attendance();
 
     //checking if time in is empty
-      $out_validator = Attendance::where('user_id', Auth::user()->id)->where('date', $mytime)->get();
+   ///   $out_validator = Attendance::where('user_id', Auth::user()->id)->where('date', $mytime)->get();
 
 
-
+/* 
      if(!$out_validator->isEmpty())
      {
             //checking if time_out is existing
@@ -115,9 +101,20 @@ class AttendanceController extends Controller
      {
      $message="You must logged in first";
 
-     }
+     } */
 
+     $status = "OUT";
+     $att = new Attendance();
 
+     $att->date = $mytime;
+     $att->time = request('time');
+     $att->status =$status;
+     $att->coordinates = request('coordinates');
+     $att->address = request('address');
+     $att->user_id = Auth::user()->id;
+     $att->save();
+
+     $message='Sucessfully Time out!';
 
    
 

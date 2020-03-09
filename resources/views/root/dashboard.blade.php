@@ -69,8 +69,9 @@
               <th>Name</th>
               <th>Coordinates</th>
               <th>Address</th>
-              <th>Time In</th>
-              <th>Time Out</th>
+              <th>time</th>
+              <th>status</th>
+              <th>date</th>
             </tr>
           </thead>
           <tbody>
@@ -80,8 +81,9 @@
                 <td>{{$att->last_name}}, {{$att->first_name}}</td>
                 <td>{{$att->coordinates}}</td>
                 <td>{{$att->address}}</td>
-                <td>{{$att->time_in}}</td>.
-                <td>{{$att->time_out}}</td>
+                <td>{{$att->time}}</td>
+                <td>{{$att->status}}</td>
+                <td>{{$att->date}}</td>
 
               </tr>
 
